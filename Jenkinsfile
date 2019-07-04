@@ -34,7 +34,7 @@
                 stage('Third') {
                         when {
                                 expression {
-                                        env.EXECUTE == 'true'
+                                        env.EXECUTE == 'false'
                                 }
                         }
                         steps {
