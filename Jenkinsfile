@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
         agent any
         stages {
                 stage('First') {
@@ -13,6 +13,14 @@ pipeline {
  
 
                 stage('Second') {
+                        when {
+                                expression {
+                                        env.EXECUTE == 'true'
+                                }
+                        }
+
+ 
+
                         steps {
                                 script {
                                         echo "Updating second stage"
@@ -24,6 +32,11 @@ pipeline {
  
 
                 stage('Third') {
+                        when {
+                                expression {
+                                        env.EXECUTE == 'false'
+                                }
+                        }
                         steps {
                                 script {
                                         echo "Deploying yes"
@@ -34,4 +47,4 @@ pipeline {
 
                 }
         }
-}
+} 
