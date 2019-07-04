@@ -1,9 +1,12 @@
 pipeline {
-        agent any 
+        agent any
         stages {
                 stage('First') {
                         steps {
-                                sh 'echo "Building"'
+                                script {
+                                        echo "Building"
+                                        env.EXECUTE = 'true'
+                                }
                         }
                 }
 
@@ -11,7 +14,10 @@ pipeline {
 
                 stage('Second') {
                         steps {
-                                sh 'echo "Updating second stage"'
+                                script {
+                                        echo "Updating second stage"
+                                        echo "${env.EXECUTE}"
+                                }
                         }
                 }
 
@@ -19,7 +25,9 @@ pipeline {
 
                 stage('Third') {
                         steps {
-                                sh 'echo "Deploying"'
+                                script {
+                                        echo "Deploying yes"
+                                }
                         }
 
  
