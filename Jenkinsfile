@@ -4,7 +4,7 @@
                 stage('First') {
                         steps {
                                 script {
-                                        echo "Building 1"
+                                        echo "Building "
                                         env.EXECUTE = 'true'
                                 }
                         }
